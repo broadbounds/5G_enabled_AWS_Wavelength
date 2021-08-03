@@ -1,0 +1,13 @@
+---
+- import_playbook: ssh_setup.yml
+
+- name: Transfer and execute a script.
+  hosts: all
+  remote_user: bitnami
+  become: true
+  tasks:
+     - name: Transfer the script
+       copy: src=bastion_script.sh dest=/home/bitnami mode=0777
+
+     - name: Execute the script
+       command: sh /home/bitnami/bastion_script.sh
