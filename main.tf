@@ -366,7 +366,7 @@ resource "aws_instance" "bastion_host" {
 
     connection {
     type     = "ssh"
-    user     = "ec2-user"
+    user     = "bitnami"
     private_key = tls_private_key.ssh_key.private_key_pem
     host     = aws_instance.bastion_host.public_ip
     }
@@ -404,7 +404,7 @@ resource "aws_instance" "api_server" {
 
     connection {
     type     = "ssh"
-    user     = "ec2-user"
+    user     = "bitnami"
     private_key = tls_private_key.ssh_key.private_key_pem
     host     = aws_instance.api_server.public_ip
     }
@@ -442,7 +442,7 @@ resource "aws_instance" "inference_server" {
 
     connection {
     type     = "ssh"
-    user     = "ec2-user"
+    user     = "bitnami"
     private_key = tls_private_key.ssh_key.private_key_pem
     host     = aws_instance.inference_server.public_ip
     }
