@@ -401,7 +401,7 @@ resource "aws_instance" "api_server" {
 
     connection {
     type     = "ssh"
-    user     = "bitnami"
+    user     = "ubuntu"
     private_key = tls_private_key.ssh_key.private_key_pem
     host     = aws_instance.api_server.public_ip
     }
@@ -439,7 +439,7 @@ resource "aws_instance" "inference_server" {
 
     connection {
     type     = "ssh"
-    user     = "bitnami"
+    user     = "ubuntu"
     private_key = tls_private_key.ssh_key.private_key_pem
     host     = aws_instance.inference_server.public_ip
     }
