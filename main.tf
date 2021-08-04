@@ -246,7 +246,7 @@ resource "aws_subnet" "public_subnet" {
    ]
    vpc_id = aws_vpc.vpc.id
    cidr_block = "10.0.1.0/24"
-   availability_zone_id = "use2-az1"
+   availability_zone_id = "use1-az1"  #"use2-az1"
    tags = {
       Name = "public-subnet-web-server-bastion-host"
    }
