@@ -29,3 +29,8 @@ mv fasterrcnn.mar model_store/
 
 # Create a configuration file for Torchserve (config.properties) and 
 # configure Torchserve to listen on your instance’s private IP
+
+torchserve --start \
+--model-store model_store \
+--models fasterrcnn=fasterrcnn.mar \
+--ts-config config.properties
