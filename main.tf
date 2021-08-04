@@ -31,6 +31,9 @@ resource "aws_internet_gateway" "internet_gateway" {
 
 # We add a carrier gateway
 resource "aws_ec2_carrier_gateway" "carrier_gateway" {
+ depends_on = [
+      aws_vpc.vpc,
+  ]   
   vpc_id = aws_vpc.vpc.id
 
   tags = {
@@ -163,6 +166,8 @@ resource "aws_security_group" "sg_inference_server" {
 }
 
 
+# We must first request access to the the Wavelength Zone at this link
+# https://pages.awscloud.com/wavelength-signup-form.html
 # We create a private subnet for the Wavelength Zone
 # Instances will not be accessible via the internet gateway
 resource "aws_subnet" "private_subnet" {
