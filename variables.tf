@@ -1,5 +1,6 @@
 variable "aws_region" {
   type = string
+  # this has to match with the begining of the avalability Wavelength Zones
   default = "us-east-1"
 }
 
