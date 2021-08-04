@@ -31,7 +31,7 @@ variable "key_path" {
 
 variable "WL_ZONE" {
   type        = string
-  default     = "us-east-1-wl1-dfw-wlz-1"
+  default     = "use1-dfw1-az1" #"us-east-1-wl1-dfw-wlz-1"
 }
 
 variable "NBG" {
