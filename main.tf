@@ -168,6 +168,8 @@ resource "aws_security_group" "sg_inference_server" {
 
 # We must first request access to the the Wavelength Zone at this link
 # https://pages.awscloud.com/wavelength-signup-form.html
+# Then select the region and enable the Wavelength Zone at the link:
+# https://us-west-2.console.aws.amazon.com/ec2/v2/home?region=us-west-2#Settings:tab=zones
 # We create a private subnet for the Wavelength Zone
 # Instances will not be accessible via the internet gateway
 resource "aws_subnet" "private_subnet" {
