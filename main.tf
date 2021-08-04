@@ -349,7 +349,7 @@ resource "aws_instance" "bastion_host" {
       aws_security_group.sg_bastion_host,
    ]
    ami = var.BASTION_IMAGE_ID
-   instance_type = "t3.medium"
+   instance_type = "t2.micro"
    key_name = aws_key_pair.public_ssh_key.key_name
    vpc_security_group_ids = [aws_security_group.sg_bastion_host.id]
    subnet_id = aws_subnet.public_subnet.id
@@ -359,7 +359,7 @@ resource "aws_instance" "bastion_host" {
    }
    provisioner "file" {
     source      = "${var.key_path}${var.private_key_name}.pem"
-    destination = "/home/ec2-user/private_ssh_key.pem"
+    destination = "/home/bitnami/private_ssh_key.pem"
 
     connection {
     type     = "ssh"
@@ -387,7 +387,7 @@ resource "aws_instance" "api_server" {
       aws_security_group.sg_api_server,
    ]
    ami = var.API_IMAGE_ID
-   instance_type = "t3.medium"
+   instance_type = "t2.micro"
    key_name = aws_key_pair.public_ssh_key.key_name
    vpc_security_group_ids = [aws_security_group.sg_api_server.id]
    subnet_id = aws_subnet.private_subnet.id
@@ -397,7 +397,7 @@ resource "aws_instance" "api_server" {
    }
    provisioner "file" {
     source      = "${var.key_path}${var.private_key_name}.pem"
-    destination = "/home/ec2-user/private_ssh_key.pem"
+    destination = "/home/ubuntu/private_ssh_key.pem"
 
     connection {
     type     = "ssh"
@@ -425,7 +425,7 @@ resource "aws_instance" "inference_server" {
       aws_security_group.sg_inference_server,
    ]
    ami = var.INFERENCE_IMAGE_ID
-   instance_type = "g4dn.2xlarge"
+   instance_type = "t2.micro"
    key_name = aws_key_pair.public_ssh_key.key_name
    vpc_security_group_ids = [aws_security_group.sg_inference_server.id]
    subnet_id = aws_subnet.private_subnet.id
@@ -435,7 +435,7 @@ resource "aws_instance" "inference_server" {
    }
    provisioner "file" {
     source      = "${var.key_path}${var.private_key_name}.pem"
-    destination = "/home/ec2-user/private_ssh_key.pem"
+    destination = "/home/ubuntu/private_ssh_key.pem"
 
     connection {
     type     = "ssh"
